@@ -71,7 +71,6 @@
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
-                    app:boxStrokeWidth="3dp"
                     app:hintTextColor="@color/black"
                     app:boxStrokeColor="@color/grey"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -87,10 +86,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="212dp"
                     android:src="@drawable/ic_create_post"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
+                    android:layout_margin="8dp"
                     android:layout_below="@+id/description_Field">
                 </androidx.appcompat.widget.AppCompatImageButton>
+
             </RelativeLayout>
 
         </androidx.core.widget.NestedScrollView>
