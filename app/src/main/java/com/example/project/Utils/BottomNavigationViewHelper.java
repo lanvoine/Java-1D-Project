@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 
 import com.example.project.Categories;
 import com.example.project.MainActivity;
+import com.example.project.Profile;
 import com.example.project.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -35,6 +36,8 @@ public class BottomNavigationViewHelper {
                         context.startActivity(intent2);
                         break;
                     case R.id.profile:
+                        Intent intent3 = new Intent(context, Profile.class);
+                        context.startActivity(intent3);
                         break;
                 }
 
