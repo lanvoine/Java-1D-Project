@@ -1,18 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--Top Bar-->
+        <RelativeLayout
+            android:id="@+id/RLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <include layout="@layout/layout_top_tabs" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/canopy_logo"
+                android:paddingTop="5dp">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </RelativeLayout>
+
+        <!--Middle Content-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/RLayout2"
+            android:layout_below="@+id/RLayout1">
+            <include layout="@layout/layout_middle_homeview"/>
+        </RelativeLayout>
+
+        <!--Bottom ToolBar-->
+        <include layout="@layout/layout_bottom_toolbar"/>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
