@@ -29,13 +29,6 @@
 
             <include layout="@layout/layout_center_viewpager" />
 
-            <Button
-                android:id="@+id/buttonCategories"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Categories"
-                tools:ignore="MissingConstraints" />
-
         </RelativeLayout>
 
         <!-- Bottom -->

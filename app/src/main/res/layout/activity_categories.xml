@@ -13,7 +13,7 @@
 
         <SearchView
             android:id="@+id/searchView"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_width="match_parent"
@@ -39,16 +39,16 @@
                 tools:ignore="MissingConstraints">
 
                 <ImageButton
-                    android:id="@+id/hackathon"
+                    android:id="@+id/fifthrow"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:layout_weight="1"
-                    android:background="@drawable/hackathon" />
+                    android:background="@drawable/fifthrow" />
                 <ImageButton
-                    android:id="@+id/hackathon2"
+                    android:id="@+id/hackathon"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
@@ -57,23 +57,32 @@
                     android:layout_weight="1"
                     android:background="@drawable/hackathon" />
                 <ImageButton
-                    android:id="@+id/hackathon3"
+                    android:id="@+id/exhibition"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
-                    android:background="@drawable/hackathon" />
+                    android:background="@drawable/exhibition" />
                 <ImageButton
-                    android:id="@+id/hackathon4"
+                    android:id="@+id/intern"
                     android:layout_margin="10dp"
                     android:layout_gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="2"
                     android:layout_weight="1"
-                    android:background="@drawable/hackathon" />
+                    android:background="@drawable/intern" />
+                <ImageButton
+                    android:id="@+id/scholarships"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:background="@drawable/scholarships" />
             </LinearLayout>
         </ScrollView>
 
