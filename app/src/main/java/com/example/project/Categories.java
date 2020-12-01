@@ -3,27 +3,21 @@ package com.example.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.example.project.Utils.BottomNavigationViewHelper;
-import com.google.firebase.auth.FirebaseAuth;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+import static com.example.project.Utils.BottomNavigationViewHelper.setupBottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+public class Categories extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    Button buttonCategories;
+    private Context mContext = Categories.this;
 
-    private static final String TAG = "HomeActivity";
-
-    private Context mContext = MainActivity.this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_categories);
 
         setupBottomNavigationView();
     }

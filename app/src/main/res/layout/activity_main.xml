@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,11 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <!--Top Bar-->
+        <!-- Top Toolbar -->
         <RelativeLayout
-            android:id="@+id/RLayout1"
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="wrap_content"
+            android:id="@+id/relLayout1">
 
             <include layout="@layout/layout_top_tabs" />
 
@@ -29,18 +28,22 @@
 
         </RelativeLayout>
 
-        <!--Middle Content-->
+        <!-- Mid -->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/RLayout2"
-            android:layout_below="@+id/RLayout1">
-            <include layout="@layout/layout_middle_homeview"/>
+            android:id="@+id/relLayout2"
+            android:layout_below="@+id/relLayout1">
+
+            <include layout="@layout/layout_center_viewpager" />
+
         </RelativeLayout>
 
-        <!--Bottom ToolBar-->
-        <include layout="@layout/layout_bottom_toolbar"/>
+        <!-- Bottom -->
+        <include layout="@layout/layout_bottom_naviagtion_view" />
 
     </RelativeLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
