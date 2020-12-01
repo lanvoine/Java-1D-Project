@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.Toast;
 
@@ -31,7 +32,11 @@ public class Categories extends AppCompatActivity {
     private Context mContext = Categories.this;
     SearchView searchView;
     private ArrayList<String> tags = new ArrayList<String>();
-
+    ImageButton fifthrow = findViewById(R.id.fifthrow);
+    ImageButton hackathon = findViewById(R.id.hackathon);
+    ImageButton exhibition = findViewById(R.id.exhibition);
+    ImageButton intern = findViewById(R.id.intern);
+    ImageButton scholarships = findViewById(R.id.scholarships);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +89,55 @@ public class Categories extends AppCompatActivity {
             }
         });
 
+        fifthrow.setOnClickListener((v) -> {
+            if(tags.contains("fifth row recruitment")){
+                Intent intent = new Intent(Categories.this, SearchResults.class);
+                intent.putExtra("Search", "fifth row recruitment");
+                startActivity(intent);
+            }else{
+                Toast.makeText(Categories.this, "No Posts Available",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        hackathon.setOnClickListener((v) -> {
+            if(tags.contains("hackathon")){
+                Intent intent = new Intent(Categories.this, SearchResults.class);
+                intent.putExtra("Search", "hackathon");
+                startActivity(intent);
+            }else{
+                Toast.makeText(Categories.this, "No Posts Available",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        exhibition.setOnClickListener((v) -> {
+            if(tags.contains("exhibition")){
+                Intent intent = new Intent(Categories.this, SearchResults.class);
+                intent.putExtra("Search", "exhibition");
+                startActivity(intent);
+            }else{
+                Toast.makeText(Categories.this, "No Posts Available",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        intern.setOnClickListener((v) -> {
+            if(tags.contains("career")){
+                Intent intent = new Intent(Categories.this, SearchResults.class);
+                intent.putExtra("Search", "career");
+                startActivity(intent);
+            }else{
+                Toast.makeText(Categories.this, "No Posts Available",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        scholarships.setOnClickListener((v) -> {
+            if(tags.contains("scholarships")){
+                Intent intent = new Intent(Categories.this, SearchResults.class);
+                intent.putExtra("Search", "scholarships");
+                startActivity(intent);
+            }else{
+                Toast.makeText(Categories.this, "No Posts Available",Toast.LENGTH_LONG).show();
+            }
+        });
 
     }
 
