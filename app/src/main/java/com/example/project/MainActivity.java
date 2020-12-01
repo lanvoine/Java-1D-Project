@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     Button buttonCategories;
 
-    private static final String TAG = "HomeActivity";
+
 
     private Context mContext = MainActivity.this;
     @Override
