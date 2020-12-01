@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 
 import com.example.project.Utils.BottomNavigationViewHelper;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
@@ -15,6 +16,10 @@ import static com.example.project.Utils.BottomNavigationViewHelper.setupBottomNa
 public class Profile extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private Context mContext = Profile.this;
+    Button MyPost;
+    Button SavedPost;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,24 @@ public class Profile extends AppCompatActivity {
         setContentView(activity_profile);
 
         setupBottomNavigationView();
+
+        MyPost = findViewById(R.id.myposts);
+        SavedPost =findViewById(R.id.savedposts);
+
+        MyPost.setOnClickListener(
+                //show my posts
+        );
+
+        SavedPost.setOnClickListener(
+                //show saved post
+        );
+
+
+
+
+
     }
+
 
     private void setupBottomNavigationView(){
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");

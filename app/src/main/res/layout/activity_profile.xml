@@ -32,6 +32,7 @@
                 android:layout_weight=".50"
                 android:text="My Posts"
                 app:backgroundTint="#000000"
+                android:id="@+id/myposts"
                 tools:ignore="MissingConstraints" />
 
             <Button
@@ -40,6 +41,7 @@
                 android:layout_weight=".560"
                 android:text="Saved Posts"
                 app:backgroundTint="#000000"
+                android:id="@+id/savedposts"
                 tools:ignore="MissingConstraints"/>
 
         </LinearLayout>
