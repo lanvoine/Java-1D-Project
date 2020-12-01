@@ -2,30 +2,54 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.CompoundButton;
-import android.widget.ToggleButton;
+import android.util.Log;
+import android.widget.Button;
+
+import com.example.project.Utils.BottomNavigationViewHelper;
+import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
+
+import static com.example.project.R.layout.activity_profile;
+import static com.example.project.Utils.BottomNavigationViewHelper.setupBottomNavigationView;
 
 public class Profile extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
+    private Context mContext = Profile.this;
+    Button MyPost;
+    Button SavedPost;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile_page);
+        setContentView(activity_profile);
 
-        View view;
-        ToggleButton myPost_Saved = (ToggleButton) view.findViewById(myPost_Saved);
-        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    // The toggle is enabled
-                } else {
-                    // The toggle is disabled
-                }
-            }
-        });
+        setupBottomNavigationView();
 
+        MyPost = findViewById(R.id.myposts);
+        SavedPost =findViewById(R.id.savedposts);
+
+        MyPost.setOnClickListener(
+                //show my posts
+        );
+
+        SavedPost.setOnClickListener(
+                //show saved post
+        );
+
+
+
+
+
+    }
+
+
+    private void setupBottomNavigationView(){
+        Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
+        BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
+        BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
+        BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
     }
 }
