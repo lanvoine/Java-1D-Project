@@ -2,10 +2,14 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.project.Utils.BottomNavViewHelper;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +22,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d(TAG, "onCreate: Starting...");
         setupBottomNavView();
+
+        FloatingActionButton fab = findViewById(R.id.create_post_fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
+            }
+        });
     }
 
     //Bottom Nav View Setup
@@ -25,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "setupBottomNavView: Setting up Bottom Navigation View...");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById((R.id.home_bottom_toolbar));
         BottomNavViewHelper.setupBottomNavView(bottomNavigationViewEx);
-
     }
+
+
 }

@@ -22,8 +22,8 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/canopy_logo"
-                android:paddingTop="5dp">
+                android:paddingTop="5dp"
+                android:src="@drawable/canopy_logo">
 
             </androidx.appcompat.widget.AppCompatImageView>
 
@@ -31,11 +31,29 @@
 
         <!--Middle Content-->
         <RelativeLayout
+            android:id="@+id/RLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/RLayout2"
-            android:layout_below="@+id/RLayout1">
-            <include layout="@layout/layout_middle_homeview"/>
+            android:layout_below="@+id/RLayout1"
+            android:layout_marginTop="-81dp"
+            android:paddingBottom="50dp">
+
+            <include layout="@layout/layout_middle_homeview" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/create_post_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="bottom|end"
+                android:src="@drawable/ic_create_post"
+                app:rippleColor="@color/white"
+                android:backgroundTint="@color/grey">
+
+            </com.google.android.material.floatingactionbutton.FloatingActionButton>
         </RelativeLayout>
 
         <!--Bottom ToolBar-->
