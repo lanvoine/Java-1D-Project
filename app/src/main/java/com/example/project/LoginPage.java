@@ -18,11 +18,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import static com.example.project.R.layout.activity_login;
-import static com.example.project.R.layout.activity_profile;
 
 public class LoginPage extends AppCompatActivity{
     EditText mEmail, mPassword;
-    Button mLoginBtn;
+    Button Btn_login;
     FirebaseAuth fAuth;
     private static final String TAG = "LoginPage";
 
@@ -33,7 +32,6 @@ public class LoginPage extends AppCompatActivity{
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        finish();
     }
 
 
