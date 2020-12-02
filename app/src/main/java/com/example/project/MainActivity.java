@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     Button buttonCategories;
 
-
-
     private Context mContext = MainActivity.this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 
     //Bottom Nav View Setup
 //    private void setupBottomNavView(){

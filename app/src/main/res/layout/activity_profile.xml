@@ -13,9 +13,10 @@
 
         <ImageView
             android:id="@+id/topbar"
-            android:layout_width="match_parent"
+            android:layout_width="140dp"
             android:layout_height="58dp"
-            app:srcCompat="@drawable/topbar"
+            android:padding="5dp"
+            app:srcCompat="@drawable/canopy_logo"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout
