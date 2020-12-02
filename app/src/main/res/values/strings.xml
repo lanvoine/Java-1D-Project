@@ -1,7 +1,13 @@
 <resources>
-<<<<<<< Updated upstream
+    <
+    <
+    <
+    <
+    <
+    <
+    < Updated upstream
     <string name="app_name">Project</string>
-=======
+    =======
     <string name="app_name">Canopy</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
@@ -92,5 +98,5 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
->>>>>>> Stashed changes
+    >>>>>>> Stashed changes
 </resources>

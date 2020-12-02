@@ -6,6 +6,7 @@ import android.app.SearchManager;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -61,5 +62,10 @@ public class SearchResults extends AppCompatActivity {
         newbtn = new ImageButton(this);
         newbtn.setImageResource();
         layout.addView(newbtn);
+        newbtn.setOnClickListener((v) -> {
+            Intent intent = new Intent(SearchResults.this, PostLayout.class);
+            intent.putExtra("Data", (Parcelable) datasnapshot);
+            startActivity(intent);
+        });
     }
 }
