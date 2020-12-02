@@ -2,9 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.project">
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -18,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Project" >
+        <activity android:name=".About"></activity>
         <activity android:name=".PostLayout" >
             <intent-filter tools:ignore="AppLinkUrlError">
                 <action android:name="android.intent.action.VIEW" />
@@ -33,7 +33,7 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".Profile"></activity>
+        <activity android:name=".Profile" />
         <activity android:name=".LoginPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,22 +41,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Categories" >
-
-        </activity>
-        <activity android:name=".MainActivity" >
-
-        </activity>
+        
         <activity
+            android:name=".Settings"
+            android:label="settings"
+            android:parentActivityName=".LoginPage" />
 
+        <activity android:name=".Categories"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity
             android:name=".CreatePostActivity"
             android:label="@string/title_activity_create_post"
-            android:theme="@style/Theme.Project.NoActionBar">
-
-
-        </activity>
-
-
+            android:theme="@style/Theme.Project.NoActionBar"></activity>
     </application>
 
 </manifest>
