@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 package com.example.project;
 
 import android.content.Context;
@@ -13,6 +20,8 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,6 +55,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 selectImage(CreatePostActivity.this);
             }
         });
+
     }
 
     private void selectImage(Context context) {
