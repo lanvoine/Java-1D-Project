@@ -51,6 +51,7 @@
 
                 </TextView>
                 <TextView
+                    android:id="@+id/post_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Date and time created"
@@ -66,15 +67,45 @@
             </LinearLayout>
 
         </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post description"
+            android:id="@+id/Post_description"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="start">
+
+        </TextView>
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:id="@+id/post_image"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
             android:src="@drawable/fifthrow">
 
         </ImageView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="signup link"
+            android:id="@+id/Post_signup_link"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:textAlignment="textStart"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:gravity="start">
+
+        </TextView>
 
 
     </LinearLayout>
