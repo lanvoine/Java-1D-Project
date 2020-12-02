@@ -17,15 +17,15 @@ public class About extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mehdi.sakout.aboutpage.Element adsElement = new Element();
-        adsElement.setTitle("Advertise here");
+//        mehdi.sakout.aboutpage.Element adsElement = new Element();
+//        adsElement.setTitle("Advertise here");
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
                 .setImage(R.drawable.canopy_logo)
                 .setDescription("This is a demo version of our app")
                 .addItem(new mehdi.sakout.aboutpage.Element().setTitle("Version 1.0"))
-                .addItem(adsElement)
+                //.addItem(adsElement)
                 .addGroup("Connect with me")
                 .addEmail("clement_ravindran@mymail.sutd.edu.sg")
                 .addWebsite("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
@@ -41,16 +41,16 @@ public class About extends AppCompatActivity {
         setContentView(aboutPage);
     }
 
-    private mehdi.sakout.aboutpage.Element createCopyright() {
-        mehdi.sakout.aboutpage.Element copyright = new Element();
-        String copyrightString = String.format("Copyright %d by SUTD", Calendar.getInstance().get(Calendar.YEAR));
-        copyright.setTitle(copyrightString);
-        copyright.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(About.this,copyrightString,Toast.LENGTH_SHORT).show();
-            }
-        });
-        return copyright;
-    }
+//    private mehdi.sakout.aboutpage.Element createCopyright() {
+//        mehdi.sakout.aboutpage.Element copyright = new Element();
+//        String copyrightString = String.format("Copyright %d by SUTD", Calendar.getInstance().get(Calendar.YEAR));
+//        copyright.setTitle(copyrightString);
+//        copyright.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(About.this,copyrightString,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        return copyright;
+//    }
 }
