@@ -32,7 +32,11 @@ public class Categories extends AppCompatActivity {
     private Context mContext = Categories.this;
     SearchView searchView;
     private ArrayList<String> tags = new ArrayList<String>();
-
+    ImageButton fifthrow;
+    ImageButton hackathon;
+    ImageButton exhibition;
+    ImageButton intern;
+    ImageButton scholarships;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +45,11 @@ public class Categories extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("message");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
-        ImageButton fifthrow = findViewById(R.id.fifthrow);
-        ImageButton hackathon = findViewById(R.id.hackathon);
-        ImageButton exhibition = findViewById(R.id.exhibition);
-        ImageButton intern = findViewById(R.id.intern);
-        ImageButton scholarships = findViewById(R.id.scholarships);
+        fifthrow = findViewById(R.id.fifthrow);
+        hackathon = findViewById(R.id.hackathon);
+        exhibition = findViewById(R.id.exhibition);
+        intern = findViewById(R.id.intern);
+        scholarships = findViewById(R.id.scholarships);
 
         setupBottomNavigationView();
 
