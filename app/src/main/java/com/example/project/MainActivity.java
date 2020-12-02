@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
 
@@ -38,6 +40,27 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, CreatePostActivity.class));
             }
         });
+
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+                startActivity(settingsIntent);
+            }
+
+        });
+
+    }
+
+
+
+    //example menu remove if needed
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.example_menu, menu);
+        return true;
     }
 
     //Bottom Nav View Setup
