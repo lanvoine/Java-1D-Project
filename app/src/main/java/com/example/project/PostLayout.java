@@ -30,7 +30,7 @@ public class PostLayout extends AppCompatActivity {
         description.setText(data.child("Content").getValue().toString());
         postimage.setImageBitmap();
         signuplink.setOnClickListener((v) -> {
-           Uri link = (Uri) data.child("Link").getValue().toString().;
+           Uri link = Uri.parse(data.child("Link").getValue().toString());
            Intent intent2 = new Intent(Intent.ACTION_VIEW, link);
            startActivity(intent2);
         });

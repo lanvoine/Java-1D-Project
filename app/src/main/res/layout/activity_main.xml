@@ -50,7 +50,7 @@
                 android:layout_gravity="bottom|end"
                 android:src="@drawable/ic_create_post"
                 app:rippleColor="@color/white"
-                android:backgroundTint="@color/grey">
+                android:backgroundTint="@color/gray">
 
             </com.google.android.material.floatingactionbutton.FloatingActionButton>
         </RelativeLayout>

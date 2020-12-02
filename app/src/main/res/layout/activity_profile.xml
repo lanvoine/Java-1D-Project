@@ -114,7 +114,7 @@
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/layout_bottom_naviagtion_view" />
+        <include layout="@layout/layout_bottom_navigation_view" />
 
 
 

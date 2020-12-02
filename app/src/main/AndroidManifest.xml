@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.project">
     
     <uses-permission android:name="android.permission.INTERNET"/>
@@ -32,13 +33,13 @@
         <activity android:name=".LoginPage"></activity>
         <activity android:name=".Categories" />
         <activity android:name=".MainActivity" >
-        
-
+        </activity>
         <activity
+
             android:name=".CreatePostActivity"
             android:label="@string/title_activity_create_post"
-            android:theme="@style/Theme.Project.NoActionBar"></activity>
-        
+            android:theme="@style/Theme.Project.NoActionBar">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
