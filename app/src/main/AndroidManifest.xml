@@ -30,9 +30,18 @@
                 android:resource="@xml/searchable" />
         </activity>
         <activity android:name=".Profile"></activity>
-        <activity android:name=".LoginPage"></activity>
-        <activity android:name=".Categories" />
+        <activity android:name=".LoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Categories" >
+
+        </activity>
         <activity android:name=".MainActivity" >
+
         </activity>
         <activity
 
@@ -40,11 +49,7 @@
             android:label="@string/title_activity_create_post"
             android:theme="@style/Theme.Project.NoActionBar">
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 

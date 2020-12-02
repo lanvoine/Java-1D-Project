@@ -3,8 +3,10 @@ package com.example.project;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,54 +26,54 @@ public class LoginPage extends AppCompatActivity{
     EditText mEmail, mPassword;
     Button mLoginBtn;
     FirebaseAuth fAuth;
+    ProgressBar mProgressBar;
     private static final String TAG = "LoginPage";
 
     private FirebaseAuth mAuth;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        finish();
-    }
-
-
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_login);
 
-        FirebaseAuth mAuth;
-
         mEmail = findViewById(R.id.input_email);
         mPassword = findViewById(R.id.input_password);
-        String Email = mEmail.getText().toString().trim();
-        String Password = mPassword.getText().toString().trim();
-        if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
-        }
-
-
-        mAuth = FirebaseAuth.getInstance();
-        mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        mLoginBtn = findViewById(R.id.btn_login);
+        mProgressBar = findViewById(R.id.progressBar);
+        mProgressBar.setVisibility(View.GONE);
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.getException());
-                    Toast.makeText(LoginPage.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                mProgressBar.setVisibility(View.VISIBLE);
+                String Email = mEmail.getText().toString().trim();
+                String Password = mPassword.getText().toString().trim();
+                mAuth = FirebaseAuth.getInstance();
+                if(mAuth.getCurrentUser() != null){
+                    startActivity(new Intent(LoginPage.this,MainActivity.class));
+                    finish();
                 }
+
+
+
+                mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(LoginPage.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            Log.d(TAG, "signInWithEmail:success");
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            finish();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            Toast.makeText(LoginPage.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }
         });
+
 
 
         }

@@ -28,22 +28,24 @@ import java.util.Set;
 import static com.example.project.Utils.BottomNavigationViewHelper.setupBottomNavigationView;
 
 public class Categories extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "Categories";
     private Context mContext = Categories.this;
     SearchView searchView;
     private ArrayList<String> tags = new ArrayList<String>();
-    ImageButton fifthrow = findViewById(R.id.fifthrow);
-    ImageButton hackathon = findViewById(R.id.hackathon);
-    ImageButton exhibition = findViewById(R.id.exhibition);
-    ImageButton intern = findViewById(R.id.intern);
-    ImageButton scholarships = findViewById(R.id.scholarships);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categories);
+        ImageButton fifthrow = findViewById(R.id.fifthrow);
+        ImageButton hackathon = findViewById(R.id.hackathon);
+        ImageButton exhibition = findViewById(R.id.exhibition);
+        ImageButton intern = findViewById(R.id.intern);
+        ImageButton scholarships = findViewById(R.id.scholarships);
 
         setupBottomNavigationView();
 
@@ -141,7 +143,7 @@ public class Categories extends AppCompatActivity {
 
     }
 
-    private void setupBottomNavigationView(){
+    private void setupBottomNavigationView() {
         Log.d(TAG, "setupBottomNavigationView: setting up BottomNavigationView");
         BottomNavigationViewEx bottomNavigationViewEx = (BottomNavigationViewEx) findViewById(R.id.bottomNavViewBar);
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
