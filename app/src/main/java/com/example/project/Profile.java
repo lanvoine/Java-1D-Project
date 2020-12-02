@@ -32,13 +32,14 @@ public class Profile extends AppCompatActivity {
         MyPost = findViewById(R.id.myposts);
         SavedPost =findViewById(R.id.savedposts);
 
-       MyPost.setOnClickListener(
+       MyPost.setOnClickListener((v) -> {
+           System.out.println("hi");
+               });
 
-        );
-
-        SavedPost.setOnClickListener(
+        SavedPost.setOnClickListener((v) -> {
                 //show saved post
-        );
+            System.out.println("hi");
+        });
 
 
 
