@@ -89,7 +89,7 @@
             android:id="@+id/bottomNavViewBar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginTop="690dp"
+            android:layout_marginTop="745dp"
             android:background="@drawable/white_gray_border_top"
             app:menu="@menu/bottom_navigation_menu"
             tools:ignore="NotSibling">

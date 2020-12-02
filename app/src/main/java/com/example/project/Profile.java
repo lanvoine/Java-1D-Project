@@ -41,14 +41,15 @@ public class Profile extends AppCompatActivity {
         setupBottomNavigationView();
 
         MyPost = findViewById(R.id.myposts);
-        SavedPost =findViewById(R.id.savedposts);
+        SavedPost = findViewById(R.id.savedposts);
         Postsref = FirebaseDatabase.getInstance().getReference().child("Posts");
 
-       PostList = (RecyclerView) findViewById(R.id.mypostslist);
-       PostList.setHasFixedSize(true);
-       Context context;
-       LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-       DisplayAllMyPosts();
+        PostList = (RecyclerView) findViewById(R.id.mypostslist);
+        PostList.setHasFixedSize(true);
+        Context context;
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        DisplayAllMyPosts();
+    }
 
 
 
@@ -58,7 +59,7 @@ public class Profile extends AppCompatActivity {
         BottomNavigationViewHelper.setupBottomNavigationView(bottomNavigationViewEx);
         BottomNavigationViewHelper.enableNavigation(mContext, bottomNavigationViewEx);
     }
-}
+
 
     private void DisplayAllMyPosts() {
         FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
