@@ -111,11 +111,10 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/scholarships" />
-
             </LinearLayout>
         </ScrollView>
 
-        <include layout="@layout/layout_bottom_naviagtion_view" />
+        <include layout="@layout/layout_bottom_navigation_view" />
 
 
 
