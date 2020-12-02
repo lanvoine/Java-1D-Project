@@ -25,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
+import java.util.LinkedHashMap;
+
 import static com.example.project.R.layout.activity_profile;
 import static com.example.project.Utils.BottomNavigationViewHelper.setupBottomNavigationView;
 
@@ -35,6 +37,9 @@ public class Profile extends AppCompatActivity {
     Button SavedPost;
     private RecyclerView PostList;
     private DatabaseReference Postsref;
+    private LinearLayoutManager linearLayoutManager;
+    private FirebaseRecyclerAdapter adapter;
+
 
 
 
@@ -53,6 +58,8 @@ public class Profile extends AppCompatActivity {
         PostList.setHasFixedSize(true);
         Context context;
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        PostList.setLayoutManager(linearLayoutManager);
+        PostList.setHasFixedSize(true);
         DisplayAllMyPosts();
     }
 
