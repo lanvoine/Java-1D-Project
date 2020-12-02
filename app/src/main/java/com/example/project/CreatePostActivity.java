@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -17,19 +19,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class CreatePostActivity extends AppCompatActivity {
+    private static final String TAG = "CreatePostActivity";
+
     private ImageView imageView;
+    private ImageButton attachImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_post);
         imageView = (ImageView) findViewById(R.id.attach_image);
 
-        ImageButton attachImage = (ImageButton) findViewById(R.id.attach_image);
+        attachImage = (ImageButton) findViewById(R.id.attach_image);
+        attachImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_image));
+
         attachImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,13 +76,18 @@ public class CreatePostActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.i(TAG, "Entered onActivityResult ...");
+
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_CANCELED) {
             switch (requestCode) {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
                         Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
-                        imageView.setImageBitmap(selectedImage);
+                        //imageView.setImageBitmap(selectedImage);
+                        //attachImage.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                        attachImage.setImageBitmap(selectedImage);
+                        Log.i(TAG, "Inside Camera");
                     }
                     break;
                 case 1:
@@ -86,8 +101,11 @@ public class CreatePostActivity extends AppCompatActivity {
                                 cursor.moveToFirst();
                                 int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                                 String picturePath = cursor.getString(columnIndex);
-                                imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                //imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                //attachImage.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                                attachImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                                 cursor.close();
+                                Log.i(TAG, "Inside Gallery, showing photo");
                             }
                         }
                     }
