@@ -20,16 +20,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import static com.example.project.R.layout.activity_login;
-import static com.example.project.R.layout.activity_profile;
 
 public class LoginPage extends AppCompatActivity{
     EditText mEmail, mPassword;
-    Button mLoginBtn;
+    Button Btn_login;
     FirebaseAuth fAuth;
     ProgressBar mProgressBar;
     private static final String TAG = "LoginPage";
 
     private FirebaseAuth mAuth;
+
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
