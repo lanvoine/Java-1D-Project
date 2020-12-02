@@ -43,7 +43,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="1"
                 android:layout_weight="1"
                 android:background="@drawable/fifthrow" />
             <ImageButton
@@ -52,7 +51,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:layout_weight="1"
                 android:background="@drawable/hackathon" />
             <ImageButton
@@ -61,7 +59,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:layout_weight="1"
                 android:background="@drawable/exhibition" />
             <ImageButton
@@ -70,7 +67,6 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:layout_weight="1"
                 android:background="@drawable/intern" />
             <ImageButton
@@ -79,14 +75,26 @@
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="2"
                 android:layout_weight="1"
                 android:background="@drawable/scholarships" />
         </LinearLayout>
     </ScrollView>
 
-    <include
-        layout="@layout/layout_bottom_navigation_view"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/bottomNavViewBar"
+            android:background="@drawable/white_gray_border_top"
+            app:menu="@menu/bottom_navigation_menu">
+
+
+        </com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx>
+
+    </RelativeLayout>
 
 
 </LinearLayout>

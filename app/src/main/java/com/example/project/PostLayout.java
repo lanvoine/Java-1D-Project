@@ -42,10 +42,10 @@ public class PostLayout extends AppCompatActivity {
         Bundle info = intent.getExtras();
         title.setText(info.getString("til"));
         description.setText(info.getString("desc"));
-        //postimage.setImageBitmap(BitmapEncoder.decodeImage(info.getStringArray("Data"));
+        postimage.setImageBitmap(BitmapEncoder.decodeImage(info.getString("pic")));
         signuplink.setOnClickListener((v) -> {
-           Uri link = Uri.parse(info.getString("lnk"));
-           Intent intent2 = new Intent(Intent.ACTION_VIEW, link);
+           Intent intent2 = new Intent(Intent.ACTION_VIEW);
+           intent2.setData(Uri.parse("https://"+info.getString("lnk")));
            startActivity(intent2);
         });
 
