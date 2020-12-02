@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,8 +17,12 @@ import android.widget.LinearLayout;
 
 import com.example.project.Utils.BottomNavigationViewHelper;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.firebase.ui.database.SnapshotParser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 import static com.example.project.R.layout.activity_profile;
@@ -62,18 +67,35 @@ public class Profile extends AppCompatActivity {
 
 
     private void DisplayAllMyPosts() {
-        FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Posts, PostsViewHolder>(
-                        Posts.class,
-                        R.layout.my_posts_layout,
-                        PostsViewHolder.class,
-                        Postsref
+        Query query = FirebaseDatabase.getInstance()
+                .getReference()
+                .child("Uploaded_Posts");
 
-                ) {
+        FirebaseRecyclerOptions<Posts> options =
+                new FirebaseRecyclerOptions.Builder<Posts>()
+                .setQuery(query, new SnapshotParser<Posts>() {
+                    @NonNull
+                    @Override
+                    public Posts parseSnapshot(@NonNull DataSnapshot snapshot) {
+                        return new Posts(snapshot.child("id").getValue().toString(),
+                                snapshot.child("description").getValue().toString(),
+                                snapshot.child("encoded_photo").getValue().toString(),
+                                snapshot.child("hashtag").getValue().toString(),
+                                snapshot.child("link").getValue().toString(),
+                                snapshot.child("title").getValue().toString());
+
+                    }
+                })
+                .build();
+
+        FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
+                new FirebaseRecyclerAdapter<Posts, PostsViewHolder>(options) {
                     @NonNull
                     @Override
                     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        return null;
+                        View view = LayoutInflater.from(parent.getContext())
+                                .inflate(R.layout.activity_profile, parent, false);
+                        return new PostsViewHolder(view);
                     }
 
                     @Override
@@ -89,7 +111,7 @@ public class Profile extends AppCompatActivity {
 
         public PostsViewHolder(@NonNull View itemView) {
             super(itemView);
-            mView = itemView();
+            //mView = itemView();
         }
     }
 
