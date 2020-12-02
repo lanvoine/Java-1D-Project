@@ -50,10 +50,33 @@
                     app:boxStrokeWidth="3dp"
                     app:boxStrokeColor="@color/green"
 
+
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/create_title"
+                        android:cursorVisible="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tag_Field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Hashtags"
+                    app:hintTextColor="@color/black"
+                    android:paddingTop="5dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    app:helperText="*Separated by space ie. #Hackathon #Scholarship #Vertex"
+                    app:boxStrokeWidth="3dp"
+                    app:boxStrokeColor="@color/green"
+                    android:layout_below="@+id/title_Field"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/create_tag"
                         android:cursorVisible="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"/>
@@ -66,7 +89,7 @@
                     app:boxStrokeWidth="3dp"
                     app:boxStrokeColor="@color/green"
                     android:hint="Description"
-                    android:layout_below="@+id/title_Field"
+                    android:layout_below="@+id/tag_Field"
                     android:paddingTop="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
@@ -86,9 +109,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="2dp"
+                    android:background="@drawable/round_corners"
                     android:adjustViewBounds="true"
                     android:scaleType="centerInside"
-                    android:layout_margin="8dp"
+                    android:layout_margin="10dp"
                     android:layout_below="@+id/description_Field">
                 </androidx.appcompat.widget.AppCompatImageButton>
 
@@ -118,6 +142,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

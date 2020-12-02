@@ -30,9 +30,6 @@ public class LoginPage extends AppCompatActivity{
 
     private FirebaseAuth mAuth;
 
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_login);

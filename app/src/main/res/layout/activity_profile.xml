@@ -15,7 +15,7 @@
             android:id="@+id/topbar"
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            app:srcCompat="@drawable/topbar"
+            app:srcCompat="@drawable/canopy_logo"
             tools:ignore="MissingConstraints" />
 
         <LinearLayout

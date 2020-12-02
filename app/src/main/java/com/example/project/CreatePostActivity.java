@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 package com.example.project;
 
 import android.content.Context;
@@ -20,6 +13,7 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
@@ -34,12 +28,22 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class CreatePostActivity extends AppCompatActivity {
     private static final String TAG = "CreatePostActivity";
+    private static final String UploadTAG = "Uploading.....";
 
     private ImageView imageView;
     private ImageButton attachImage;
+    private TextInputEditText title;
+    private TextInputEditText hashtag;
+    private TextInputEditText link;
+    private Bitmap photo;
+    private FloatingActionButton upload;
+    private TextInputEditText description;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +51,16 @@ public class CreatePostActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.attach_image);
 
         attachImage = (ImageButton) findViewById(R.id.attach_image);
-        attachImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_add_image));
+        attachImage.setImageDrawable(getResources().getDrawable(R.drawable.attach_image));
+        title = (TextInputEditText) findViewById(R.id.create_title);
+        hashtag = (TextInputEditText) findViewById(R.id.create_tag);
+        description = (TextInputEditText) findViewById(R.id.create_description);
+        link = (TextInputEditText) findViewById(R.id.create_link);
+        upload = (FloatingActionButton) findViewById(R.id.fab);
+
+        Context context = getApplicationContext();
+        CharSequence text = "Please enter the title and description!";
+        int duration = Toast.LENGTH_SHORT;
 
         attachImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +69,22 @@ public class CreatePostActivity extends AppCompatActivity {
             }
         });
 
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ((title.getText().toString().length() >0) && (hashtag.getText().toString().length() >0) && (description.getText().toString().length() >0)){
+                    Log.i(UploadTAG, "Upload: Starting...");
+                    UploadPost p = new UploadPost();
+                    p.uploadPost(title.getText().toString(), description.getText().toString(), hashtag.getText().toString(), photo, link.getText().toString());
+                    Toast toast = Toast.makeText(context, "Uploaded", duration);
+                    toast.show();
+                    Log.i(UploadTAG, "Upload: Completed...");
+                } else{
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
+            }
+        });
     }
 
     private void selectImage(Context context) {
@@ -90,6 +119,7 @@ public class CreatePostActivity extends AppCompatActivity {
 
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode != RESULT_CANCELED) {
+
             switch (requestCode) {
                 case 0:
                     if (resultCode == RESULT_OK && data != null) {
@@ -113,8 +143,10 @@ public class CreatePostActivity extends AppCompatActivity {
                                 String picturePath = cursor.getString(columnIndex);
                                 //imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
                                 //attachImage.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                                attachImage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+                                photo = BitmapFactory.decodeFile(picturePath);
+                                attachImage.setImageBitmap(photo);
                                 cursor.close();
+
                                 Log.i(TAG, "Inside Gallery, showing photo");
                             }
                         }
