@@ -39,10 +39,10 @@ public class LoginPage extends AppCompatActivity{
 
         mEmail = findViewById(R.id.input_email);
         mPassword = findViewById(R.id.input_password);
-        mLoginBtn = findViewById(R.id.btn_login);
+        Btn_login = findViewById(R.id.btn_login);
         mProgressBar = findViewById(R.id.progressBar);
         mProgressBar.setVisibility(View.GONE);
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+        Btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mProgressBar.setVisibility(View.VISIBLE);
