@@ -26,7 +26,7 @@ public class About extends AppCompatActivity {
                 .setDescription("This is a demo version of our app")
                 .addItem(new mehdi.sakout.aboutpage.Element().setTitle("Version 1.0"))
                 //.addItem(adsElement)
-                .addGroup("Connect with me")
+                .addGroup("Connect with us")
                 .addEmail("clement_ravindran@mymail.sutd.edu.sg")
                 .addWebsite("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
                 .addFacebook("SUTD")
