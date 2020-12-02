@@ -69,7 +69,7 @@
                     android:paddingTop="5dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    app:helperText="*Separated by space ie. #Hackathon #Scholarship #Vertex"
+                    app:helperText="*Single Hash Tag only! ie. #Hackathon #Scholarship #Vertex"
                     app:boxStrokeWidth="3dp"
                     app:boxStrokeColor="@color/green"
                     android:layout_below="@+id/title_Field"

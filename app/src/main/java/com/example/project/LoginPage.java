@@ -26,9 +26,19 @@ public class LoginPage extends AppCompatActivity{
     Button Btn_login;
     FirebaseAuth fAuth;
     ProgressBar mProgressBar;
+
+    public static String user_email;
     private static final String TAG = "LoginPage";
 
     private FirebaseAuth mAuth;
+
+    public static String getUser_email() {
+        return user_email;
+    }
+
+    public static void setUser_email(String user_email) {
+        LoginPage.user_email = user_email;
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,9 +60,7 @@ public class LoginPage extends AppCompatActivity{
                     startActivity(new Intent(LoginPage.this,MainActivity.class));
                     finish();
                 }
-
-
-
+                UploadPost.setUser_email(Email);
                 mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(LoginPage.this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -60,6 +68,8 @@ public class LoginPage extends AppCompatActivity{
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            //LoginPage.setUser_email(Email);
+
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
                             finish();
                         } else {

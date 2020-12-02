@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     //Bottom Nav View Setup
 //    private void setupBottomNavView(){
 //        Log.d(TAG, "setupBottomNavView: Setting up Bottom Navigation View...");

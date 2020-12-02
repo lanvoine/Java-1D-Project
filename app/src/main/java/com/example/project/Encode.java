@@ -9,20 +9,30 @@ public class Encode extends BitmapEncoder {
     public String description;
     public Bitmap photo;
     public String link;
+    public String hashtag;
     public String encoded_photo;
 
     public String getDescription() {
         return description;
     }
 
+    public String getHashtag() {
+        return hashtag;
+    }
+
+    public void setHashtag(String hashtag) {
+        this.hashtag = hashtag;
+    }
+
     public void setDescription(String description) {
         this.description = description;
     }
 
-    Encode(String title, String description, Bitmap photo, String link){
+    Encode(String title, String hashtag, String description, Bitmap photo, String link){
         this.title = title;
         this.description = description;
         this.photo = photo;
+        this.hashtag = hashtag;
         this.link = link;
         this.encoded_photo = BitmapEncoder.encodeImage(this.photo);
     }

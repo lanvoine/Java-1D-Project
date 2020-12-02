@@ -33,9 +33,16 @@
             android:id="@+id/RLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/RLayout1"
-            android:layout_marginTop="-81dp"
+            android:layout_below="@+id/relLayout1"
             android:paddingBottom="50dp">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/MiddleScroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                
+
+            </androidx.core.widget.NestedScrollView>
 
             <include layout="@layout/layout_middle_homeview" />
 
@@ -45,12 +52,12 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom|end"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:layout_gravity="bottom|end"
+                android:backgroundTint="@color/gray"
                 android:src="@drawable/ic_create_post"
-                app:rippleColor="@color/white"
-                android:backgroundTint="@color/gray">
+                app:rippleColor="@color/white">
 
             </com.google.android.material.floatingactionbutton.FloatingActionButton>
         </RelativeLayout>

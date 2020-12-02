@@ -75,16 +75,18 @@ public class CreatePostActivity extends AppCompatActivity {
                 if ((title.getText().toString().length() >0) && (hashtag.getText().toString().length() >0) && (description.getText().toString().length() >0)){
                     Log.i(UploadTAG, "Upload: Starting...");
                     UploadPost p = new UploadPost();
-                    p.uploadPost(title.getText().toString(), description.getText().toString(), hashtag.getText().toString(), photo, link.getText().toString());
+                    p.uploadPost(title.getText().toString(), hashtag.getText().toString(), description.getText().toString(), photo, link.getText().toString());
                     Toast toast = Toast.makeText(context, "Uploaded", duration);
                     toast.show();
                     Log.i(UploadTAG, "Upload: Completed...");
+                    startActivity(new Intent(CreatePostActivity.this, MainActivity.class));
                 } else{
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
                 }
             }
         });
+
     }
 
     private void selectImage(Context context) {
