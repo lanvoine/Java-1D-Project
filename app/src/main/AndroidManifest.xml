@@ -36,10 +36,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".Settings"
             android:label="settings"
             android:parentActivityName=".LoginPage" />
+
         <activity android:name=".Categories"></activity>
         <activity android:name=".MainActivity"></activity>
         <activity
