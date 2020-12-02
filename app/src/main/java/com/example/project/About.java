@@ -22,7 +22,7 @@ public class About extends AppCompatActivity {
 
         View aboutPage = new AboutPage(this)
                 .isRTL(false)
-                .setImage(R.drawable.canopy_logo)
+                //.setImage(R.drawable.canopy_logo)
                 .setDescription("This is a demo version of our app")
                 .addItem(new mehdi.sakout.aboutpage.Element().setTitle("Version 1.0"))
                 //.addItem(adsElement)
