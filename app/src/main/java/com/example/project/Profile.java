@@ -28,16 +28,16 @@ public class Profile extends AppCompatActivity {
 
         setupBottomNavigationView();
 
-        MyPost = findViewById(R.id.myposts);
-        SavedPost =findViewById(R.id.savedposts);
+ //       MyPost = findViewById(R.id.myposts);
+ //       SavedPost =findViewById(R.id.savedposts);
 
-        MyPost.setOnClickListener(
+ //       MyPost.setOnClickListener(
                 //show my posts
-        );
+ //       );
 
-        SavedPost.setOnClickListener(
+ //       SavedPost.setOnClickListener(
                 //show saved post
-        );
+  //      );
 
 
 
