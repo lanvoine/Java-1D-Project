@@ -3,6 +3,7 @@ package com.example.project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -28,16 +29,16 @@ public class Profile extends AppCompatActivity {
 
         setupBottomNavigationView();
 
- //       MyPost = findViewById(R.id.myposts);
- //       SavedPost =findViewById(R.id.savedposts);
+        MyPost = findViewById(R.id.myposts);
+        SavedPost =findViewById(R.id.savedposts);
 
- //       MyPost.setOnClickListener(
-                //show my posts
- //       );
+       MyPost.setOnClickListener(
 
- //       SavedPost.setOnClickListener(
+        );
+
+        SavedPost.setOnClickListener(
                 //show saved post
-  //      );
+        );
 
 
 
