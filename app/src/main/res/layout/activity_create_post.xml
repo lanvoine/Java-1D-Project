@@ -49,7 +49,7 @@
                     android:paddingRight="10dp"
 
                     app:boxStrokeWidth="3dp"
-                    app:boxStrokeColor="@color/grey"
+                    app:boxStrokeColor="@color/gray"
 
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -72,7 +72,7 @@
                     android:paddingRight="10dp"
                     android:paddingBottom="5dp"
                     app:hintTextColor="@color/black"
-                    app:boxStrokeColor="@color/grey"
+                    app:boxStrokeColor="@color/gray"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -99,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/grey"
+            android:backgroundTint="@color/gray"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="10dp"
