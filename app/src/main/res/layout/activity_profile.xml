@@ -111,7 +111,6 @@
                     android:layout_margin="10dp"
                     android:layout_weight="1"
                     android:background="@drawable/scholarships" />
-
             </LinearLayout>
         </ScrollView>
 
