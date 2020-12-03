@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.project.Utils.BottomNavigationViewHelper;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -101,13 +102,15 @@ public class Profile extends AppCompatActivity {
                     @Override
                     public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                         View view = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.activity_profile, parent, false);
+                                .inflate(R.layout.my_posts_layout, parent, false);
                         return new PostsViewHolder(view);
                     }
 
                     @Override
                     protected void onBindViewHolder(@NonNull PostsViewHolder holder, int position, @NonNull Posts model) {
+                        TextView username = holder.mView.findViewById(R.id.Post_username);
 
+                        username.setText(model.getPoster());
                     }
                 };
         PostList.setAdapter(firebaseRecyclerAdapter);
