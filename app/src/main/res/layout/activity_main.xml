@@ -59,6 +59,21 @@
             </androidx.core.widget.NestedScrollView>
 
             <include layout="@layout/layout_middle_homeview" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mypostslist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="30dp"
+                android:foregroundGravity="center"
+
+
+                android:layout_marginBottom="60dp"
+                tools:ignore="MissingConstraints">
+
+
+            </androidx.recyclerview.widget.RecyclerView>
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/create_post_fab"

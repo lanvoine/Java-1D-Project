@@ -41,9 +41,6 @@ public class Profile extends AppCompatActivity {
     private LinearLayoutManager linearLayoutManager;
     private FirebaseRecyclerAdapter adapter;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +58,11 @@ public class Profile extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         PostList.setLayoutManager(linearLayoutManager);
         PostList.setHasFixedSize(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         DisplayAllMyPosts();
     }
 
@@ -76,52 +78,50 @@ public class Profile extends AppCompatActivity {
 
     private void DisplayAllMyPosts() {
         Query query = FirebaseDatabase.getInstance()
-                .getReference()
-                .child("Uploaded_Posts");
+            .getReference("Uploaded_Posts");
 
         FirebaseRecyclerOptions<Posts> options =
-                new FirebaseRecyclerOptions.Builder<Posts>()
-                .setQuery(query, new SnapshotParser<Posts>() {
-                    @NonNull
-                    @Override
-                    public Posts parseSnapshot(@NonNull DataSnapshot snapshot) {
-                        return new Posts(snapshot.child("id").getValue().toString(),
-                                snapshot.child("description").getValue().toString(),
-                                snapshot.child("encoded_photo").getValue().toString(),
-                                snapshot.child("hashtag").getValue().toString(),
-                                snapshot.child("link").getValue().toString(),
-                                snapshot.child("title").getValue().toString());
+            new FirebaseRecyclerOptions.Builder<Posts>()
+            .setQuery(query, new SnapshotParser<Posts>() {
+                @NonNull
+                @Override
+                public Posts parseSnapshot(@NonNull DataSnapshot snapshot) {
+                    return new Posts((String) snapshot.child("poster").getValue(),
+                            (String) snapshot.child("description").getValue(),
+                            (String) snapshot.child("encoded_photo").getValue(),
+                            (String) snapshot.child("hashtag").getValue(),
+                            (String) snapshot.child("link").getValue(),
+                            (String) snapshot.child("title").getValue());
 
-                    }
-                })
-                .build();
+                }
+            })
+            .build();
 
         FirebaseRecyclerAdapter<Posts, PostsViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<Posts, PostsViewHolder>(options) {
-                    @NonNull
-                    @Override
-                    public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                        View view = LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.my_posts_layout, parent, false);
-                        return new PostsViewHolder(view);
-                    }
+            new FirebaseRecyclerAdapter<Posts, PostsViewHolder>(options) {
+                @NonNull
+                @Override
+                public PostsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                    View view = LayoutInflater.from(Profile.this)
+                            .inflate(R.layout.my_posts_layout, parent, false);
+                    return new PostsViewHolder(view);
+                }
 
-                    @Override
-                    protected void onBindViewHolder(@NonNull PostsViewHolder holder, int position, @NonNull Posts model) {
-                        TextView username = holder.mView.findViewById(R.id.Post_username);
+                @Override
+                protected void onBindViewHolder(@NonNull PostsViewHolder holder, int position, @NonNull Posts model) {
+                    TextView username = holder.itemView.findViewById(R.id.Post_username);
 
-                        username.setText(model.getPoster());
-                    }
-                };
+                    username.setText(model.getPoster());
+                }
+            };
+        firebaseRecyclerAdapter.startListening();
         PostList.setAdapter(firebaseRecyclerAdapter);
     }
 
     public static class PostsViewHolder extends RecyclerView.ViewHolder {
-        View mView;
 
         public PostsViewHolder(@NonNull View itemView) {
             super(itemView);
-            //mView = itemView();
         }
     }
 
