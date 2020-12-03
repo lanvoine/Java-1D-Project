@@ -58,6 +58,16 @@ public class Profile extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         PostList.setLayoutManager(linearLayoutManager);
         PostList.setHasFixedSize(true);
+
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent settingsIntent = new Intent(getApplicationContext(), Settings.class);
+                startActivity(settingsIntent);
+            }
+
+        });
     }
 
     @Override
