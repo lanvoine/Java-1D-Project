@@ -13,9 +13,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.project.Utils.BitmapEncoder;
 import com.example.project.Utils.BottomNavigationViewHelper;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -78,7 +80,9 @@ public class Profile extends AppCompatActivity {
 
     private void DisplayAllMyPosts() {
         Query query = FirebaseDatabase.getInstance()
-            .getReference("Uploaded_Posts");
+                .getReference("Uploaded_Posts")
+                .orderByChild("poster")
+                .equalTo("clement_ravindran@mymail.sutd.edu.sg");
 
         FirebaseRecyclerOptions<Posts> options =
             new FirebaseRecyclerOptions.Builder<Posts>()
@@ -110,8 +114,14 @@ public class Profile extends AppCompatActivity {
                 @Override
                 protected void onBindViewHolder(@NonNull PostsViewHolder holder, int position, @NonNull Posts model) {
                     TextView username = holder.itemView.findViewById(R.id.Post_username);
+                    TextView title = holder.itemView.findViewById(R.id.Post_title);
+                    TextView description = holder.itemView.findViewById(R.id.Post_description);
+                    ImageView image = holder.itemView.findViewById(R.id.post_image);
 
                     username.setText(model.getPoster());
+                    title.setText(model.getTitle());
+                    description.setText(model.getDescription());
+                    image.setImageBitmap(BitmapEncoder.decodeImage(model.getEncoded_photo()));
                 }
             };
         firebaseRecyclerAdapter.startListening();

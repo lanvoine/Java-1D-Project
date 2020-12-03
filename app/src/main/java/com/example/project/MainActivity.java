@@ -15,8 +15,10 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.project.Utils.BitmapEncoder;
 import com.example.project.Utils.BottomNavViewHelper;
 import com.example.project.Utils.BottomNavigationViewHelper;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -133,8 +135,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     protected void onBindViewHolder(@NonNull Profile.PostsViewHolder holder, int position, @NonNull Posts model) {
                         TextView username = holder.itemView.findViewById(R.id.Post_username);
+                        TextView title = holder.itemView.findViewById(R.id.Post_title);
+                        TextView description = holder.itemView.findViewById(R.id.Post_description);
+                        ImageView image = holder.itemView.findViewById(R.id.post_image);
 
                         username.setText(model.getPoster());
+                        title.setText(model.getTitle());
+                        description.setText(model.getDescription());
+                        image.setImageBitmap(BitmapEncoder.decodeImage(model.getEncoded_photo()));
                     }
                 };
         firebaseRecyclerAdapter.startListening();
